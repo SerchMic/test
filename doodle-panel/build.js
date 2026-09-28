@@ -36,7 +36,6 @@ function stat(s, x, y, w, big, label, color, size) {
     s.addText(String(i + 1), { x, y: 3.85, w: 0.35, h: 0.35, fontFace: F, fontSize: 16, bold: true, color: CORAL, margin: 0, isTextBox: true });
     s.addText(t, { x: x + 0.35, y: 3.85, w: 1.75, h: 0.35, fontFace: F, fontSize: 12, color: WHITE, margin: 0, isTextBox: true });
   });
-  s.addText('Outside-in view from public sources — a hypothesis to test against your CRM, not your forecast.', { x: X, y: 5.02, w: W, h: 0.28, fontFace: F, fontSize: 9.5, color: MUTED, margin: 0, isTextBox: true });
   s.addNotes(`~35 s. FIRST: "Before I start — what's the real end time? I'll cut this to fit." Then: "You asked for four things; the deck follows exactly those four, in about eight minutes."
 One-line thesis: production is scaling, the radio is chosen once at design freeze, and I'd win it account by account.
 Everything comes from public sources. It's a hypothesis until it meets your CRM.`);
@@ -44,11 +43,11 @@ Everything comes from public sources. It's a hypothesis until it meets your CRM.
 
 // ---------- 2 · The seat ----------
 {
-  const s = base('WHO IS PRESENTING', "I've sat on the OEM side of this sale", 'The gap, stated upfront: I have not sold a radio as the component vendor. I know the seat your customers sit in.');
+  const s = base(null, "I've sat on the OEM side of this sale", 'What I haven\'t done: sell a radio as the component vendor.');
   const cols = [
     ['€3.5M', "Multi-year programme with Portugal's grid operator. Opened from zero, through a partner who held the relationship."],
     ['2', 'Regions opened from zero — Iberia and LATAM — as the sole commercial resource, including a BVLOS permit over critical infrastructure.'],
-    ['90+', 'Distribution and integration partners built at an industrial UAV OEM, where I integrated third-party subsystems.'],
+    ['2 yrs', 'At an industrial UAV OEM, integrating third-party subsystems into our own platforms and selling the system.'],
   ];
   cols.forEach((c, i) => stat(s, X + i * 2.95, 1.75, 2.6, c[0], c[1], i === 0 ? CORAL : WHITE));
   s.addNotes(`~45 s. They've read the CV — short and factual.
@@ -59,14 +58,13 @@ If asked "you've never sold a radio?": "True. I've been the OEM a component vend
 
 // ---------- 3 · Market ----------
 {
-  const s = base('1 · UXV MARKET', 'Europe is buying unmanned systems at scale — and the money lands with the OEM', 'Budgets become platforms; every platform needs a link. I call the OEM, not the ministry.');
+  const s = base('1 · UXV MARKET', 'Europe is buying unmanned systems at scale — and the money lands with the OEM', null);
   const cols = [
     ['€540M', 'Bundeswehr loitering munitions, Helsing and STARK. Approved Feb 2026.'],
     ['6,000', 'Soldier drones ordered by France (DGA, DELCO programme), 2026.'],
     ['5', 'EU defence projects approved 28 Sep 2026, including drones and counter-drone.'],
   ];
   cols.forEach((c, i) => stat(s, X + i * 2.95, 1.75, 2.6, c[0], c[1]));
-  s.addText('Air, ground and sea: every scaled platform adds range, EW exposure and nodes to a network.', { x: X, y: 3.95, w: W, h: 0.4, fontFace: F, fontSize: 12, italic: true, color: MUTED, margin: 0, isTextBox: true });
   s.addNotes(`~45 s. Three facts, one takeaway.
 €540M: Bundestag approval 25-Feb-2026, Helsing HX-2 and STARK Virtus; options beyond that.
 6,000: DGA, 1,000 + 5,000 DELCO (Harmattan), Jun-2026.
@@ -89,7 +87,7 @@ If fibre comes up: fibre keeps the disposable short-range tier; RF mesh keeps re
     valAxisHidden: true, valGridLine: { style: 'none' }, catGridLine: { style: 'none' },
   });
   stat(s, 6.75, 1.75, 2.55, '~10k → 50k', 'platforms a year, 2025 → 2030, across 20 accounts with published volumes.', WHITE, 26);
-  s.addText('Growth comes from new volume — strike, interceptors, UGVs — where the radio socket is least likely to be locked.', { x: 6.75, y: 3.35, w: 2.55, h: 1.3, fontFace: F, fontSize: 12, color: CORAL, margin: 0, valign: 'top', isTextBox: true });
+  s.addText('Most of the growth is strike, interceptors and UGVs.', { x: 6.75, y: 3.35, w: 2.55, h: 1.3, fontFace: F, fontSize: 12, color: CORAL, margin: 0, valign: 'top', isTextBox: true });
   s.addNotes(`~50 s. Units, not money.
 2025: 9,850 platforms; 2030 base: 49,950; upside ~112k. The conservative line falls after 2027 on purpose: only ~13k of 2026 units are contracted, the rest is options and announced ramps.
 Model: 20 accounts, 21 platforms, 53 evidence items (39 grade A — contracts, delivery rates).
@@ -103,7 +101,7 @@ If "is 5× real?": "The signal isn't the multiple, it's where growth comes from.
   const rows = [
     ['~$215M', 'Addressable', 'Radio nodes those platforms need, where a Mesh Rider SKU fits', WHITE, 8.6],
     ['~$156M', 'Open sockets', 'Not visibly locked by a single incumbent', WHITE, 6.6],
-    ['~$15M', 'Contracted today', 'Rests on contracts I can see — the design window is now', CORAL, 4.6],
+    ['~$15M', 'Contracted today', 'Rests on contracts visible today', CORAL, 4.6],
     ['?', 'Your forecast', 'Needs your CRM, installed base and price book', MUTED, 2.6],
   ];
   rows.forEach((r, i) => {
@@ -121,12 +119,12 @@ If "how do you go from addressable to forecast?": socket open + customer evidenc
 
 // ---------- 6 · Where Doodle fits ----------
 {
-  const s = base('1 · WHERE DOODLE FITS', 'Doodle wins as the independent embedded link', '"We are not European. We are independent." — the pitch Doodle can make and defend.');
+  const s = base('1 · WHERE DOODLE FITS', 'Doodle wins as the independent embedded link', null);
   card(s, X, 1.55, 4.15, 2.9); card(s, X + 4.45, 1.55, 4.15, 2.9);
   s.addText('PLAY', { x: X + 0.25, y: 1.75, w: 3.7, h: 0.3, fontFace: MONO, fontSize: 10, color: CORAL, margin: 0, isTextBox: true });
   s.addText('DON\'T PLAY', { x: X + 4.7, y: 1.75, w: 3.7, h: 0.3, fontFace: MONO, fontSize: 10, color: MUTED, margin: 0, isTextBox: true });
   const play = ['Inside someone else\'s platform, chosen at design freeze', 'New-volume sockets: strike, interceptors, UGVs', 'Private-label partners who put the radio in their product'];
-  const dont = ['The tactical radio in a soldier\'s hand', 'Captive architectures — primes that build their own radios', 'European sovereignty — we can\'t sell a flag'];
+  const dont = ['The tactical radio in a soldier\'s hand', 'Captive architectures — primes that build their own radios', 'A sovereignty pitch — Doodle is a US company'];
   const list = (arr, x, color) => s.addText(arr.map((t, i) => ({ text: t, options: { bullet: true, breakLine: i < arr.length - 1 } })), { x, y: 2.15, w: 3.7, h: 2.1, fontFace: F, fontSize: 12.5, color, paraSpaceAfter: 8, margin: 0, valign: 'top', isTextBox: true });
   list(play, X + 0.25, WHITE); list(dont, X + 4.7, BODY);
   s.addNotes(`~40 s. Positioning, not a product pitch — they know the product.
@@ -151,7 +149,6 @@ Supply resilience: US and European production sites under evaluation (Defense Ne
     s.addText(d[1], { x: x + 0.2, y: 2.7, w: 2.3, h: 0.55, fontFace: F, fontSize: 11.5, color: BODY, margin: 0, valign: 'top', isTextBox: true });
     s.addText(d[2], { x: x + 0.2, y: 3.35, w: 2.3, h: 0.6, fontFace: F, fontSize: 11.5, bold: true, color: WHITE, margin: 0, valign: 'top', isTextBox: true });
   });
-  s.addText('Proof = an eval kit in an engineer\'s hands and a number he measured. Credibility = a local reference who already holds the relationship.', { x: X, y: 4.3, w: W, h: 0.5, fontFace: F, fontSize: 11.5, italic: true, color: MUTED, margin: 0, isTextBox: true });
   s.addNotes(`~55 s. Method first — method says repeatable, a story alone says lucky.
 Buying unit = a radio socket inside a platform, and who signs it.
 Door 1: Airvolute (SK), Auterion (DE/CH), Evolve Dynamics (UK), LUXUAV (LU), UXV Technologies (DK) name Doodle on their own websites — NOT confirmed customers. Say "companies that name Doodle", never "your customers". UXV's public partnership proves the reference model.
@@ -163,7 +160,7 @@ Counts from my own database, 840 companies, verified 28-Sep-2026.`);
 
 // ---------- 8 · Coverage ----------
 {
-  const s = base('2 · NEW TERRITORY', 'Cover Europe by account value, not by border', 'One design authority, one owner. Factories and regional support share the credit.');
+  const s = base('2 · NEW TERRITORY', 'Cover Europe by account value, not by border', 'One design authority, one owner.');
   const tiers = [
     ['CORE TERRITORY', 'France · Italy · Spain · Portugal', 'France anchors it: contracted volume today'],
     ['STRATEGIC ACCOUNTS', 'Helsing · STARK · Rheinmetall · TYTAN · Quantum', 'Owned where the radio is specified'],
@@ -177,7 +174,6 @@ Counts from my own database, 840 companies, verified 28-Sep-2026.`);
     s.addText([{ text: t[1], options: { bold: true, color: WHITE, breakLine: true } }, { text: t[2], options: { color: BODY } }], { x: X + 2.1, y, w: 3.5, h: 0.68, fontFace: F, fontSize: 10.5, margin: 0, valign: 'middle', isTextBox: true });
   });
   stat(s, 6.75, 1.55, 2.55, '~68%', 'of evidenced value sits in German programmes; ~17% in French.', CORAL);
-  s.addText('The radio decision sits with the design authority — which doesn\'t always match where a platform is built.', { x: 6.75, y: 3.2, w: 2.55, h: 1.3, fontFace: F, fontSize: 11.5, color: BODY, margin: 0, valign: 'top', isTextBox: true });
   s.addNotes(`~45 s. How Europe could be covered — not a claim on territory.
 Design authority examples: STARK designs in Germany and builds in several countries; Tekever designs in Lisbon and builds in Swindon. Geography alone splits one account between several owners.
 ~68% German is where the contracted volume is TODAY, partly disclosure bias — never "Germany is the best market".
@@ -209,28 +205,61 @@ Only if asked: one candidate distributor lists a Russia office — settled befor
 Deal framing: MEDDPICC.`);
 }
 
-// ---------- 10 · 30-60-90 ----------
-{
-  const s = base('4 · 30-60-90 · EXISTING + NEW BUSINESS', '30 days information · 60 proof · 90 commitment', "I won't promise production wins in 90 days. I'll promise you know exactly where every account stands.");
-  const cols = [
-    ['DAYS 1–30 · INFORMATION', ['Reconcile my map with your CRM, installed base and account ownership', 'Meet every existing customer: what are you designing next?', 'Agree a written qualification standard'], 'Agreed baseline'],
-    ['DAYS 31–60 · PROOF', ['Run 4–6 customer evaluations, sized to SE capacity', 'Open 1–2 partners in bounded pilots', 'Measure conversion by account and motion'], 'Evaluations live, with criteria and dates'],
-    ['DAYS 61–90 · COMMITMENT', ['Every priority account: advance, nurture or stop', 'Design-in decisions where the customer\'s clock allows', 'Bottom-up forecast, every input labelled'], 'Customer-backed forecast'],
-  ];
-  cols.forEach((c, i) => {
-    const x = X + i * 2.95;
-    card(s, x, 1.5, 2.7, 3.3);
-    s.addText(c[0], { x: x + 0.2, y: 1.65, w: 2.35, h: 0.3, fontFace: MONO, fontSize: 9, color: CORAL, margin: 0, isTextBox: true });
-    s.addText(c[1].map((t, j) => ({ text: t, options: { bullet: true, breakLine: j < c[1].length - 1 } })), { x: x + 0.2, y: 2.05, w: 2.35, h: 2.0, fontFace: F, fontSize: 11, color: BODY, paraSpaceAfter: 6, margin: 0, valign: 'top', isTextBox: true });
-    s.addText([{ text: 'GATE  ', options: { fontFace: MONO, color: MUTED, fontSize: 9 } }, { text: c[2], options: { bold: true, color: WHITE } }], { x: x + 0.2, y: 4.15, w: 2.35, h: 0.5, fontFace: F, fontSize: 11, margin: 0, valign: 'middle', isTextBox: true });
+// ---------- 10-12 · 30-60-90 (three slides) ----------
+function phase(idx, kicker, title, existing, fresh, gate, measure, footer, notes) {
+  const s = base('4 · 30-60-90 · ' + kicker, title, footer);
+  // progress motif, top right
+  ['30', '60', '90'].forEach((d, i) => {
+    s.addShape(pres.shapes.OVAL, { x: 7.9 + i * 0.48, y: 0.36, w: 0.36, h: 0.36, fill: { color: i === idx ? CORAL : CARD }, line: { color: i === idx ? CORAL : LINE, width: 0.75 } });
+    s.addText(d, { x: 7.9 + i * 0.48, y: 0.36, w: 0.36, h: 0.36, fontFace: F, fontSize: 9, bold: true, color: i === idx ? BG : MUTED, align: 'center', valign: 'middle', margin: 0, isTextBox: true });
   });
-  s.addNotes(`~60 s. One slide, three gates.
-Existing business: secure the base first — every current account gets a meeting and one question: what are you designing next? New business runs in parallel from week two.
-4–6 evaluations "sized to your SE capacity, which I'd ask you for rather than invent" (you're hiring a Sales Engineer in Germany — ask how capacity is shared until then).
-Design-in clock (my assumption, to calibrate with David): decision ~month 9, certification behind it, first production PO ~month 24. That's why day 90 is about decisions, not revenue.
-Forecast = design-ins × platform volume × attach rate × your price, each input tagged known / assumed.
-Year-one number: "With your installed base and price book I'd commit to a number in week four."`);
+  const col = (x, label, items) => {
+    card(s, x, 1.5, 4.15, 2.45);
+    s.addText(label, { x: x + 0.25, y: 1.65, w: 3.7, h: 0.28, fontFace: MONO, fontSize: 9.5, color: CORAL, margin: 0, isTextBox: true });
+    s.addText(items.map((t, i) => ({ text: t, options: { bullet: true, breakLine: i < items.length - 1 } })), { x: x + 0.25, y: 2.02, w: 3.7, h: 1.8, fontFace: F, fontSize: 12, color: BODY, paraSpaceAfter: 7, margin: 0, valign: 'top', isTextBox: true });
+  };
+  col(X, 'EXISTING BUSINESS', existing);
+  col(X + 4.45, 'NEW BUSINESS', fresh);
+  s.addShape(pres.shapes.RECTANGLE, { x: X, y: 4.1, w: W, h: 0.72, fill: { color: '3A1F21' }, line: { color: CORAL, width: 0.75 } });
+  s.addText([{ text: 'GATE   ', options: { fontFace: MONO, fontSize: 9.5, color: CORAL } }, { text: gate, options: { bold: true, color: WHITE } }], { x: X + 0.25, y: 4.14, w: 4.9, h: 0.64, fontFace: F, fontSize: 12, margin: 0, valign: 'middle', isTextBox: true });
+  s.addText([{ text: 'MEASURED BY   ', options: { fontFace: MONO, fontSize: 9, color: MUTED } }, { text: measure, options: { color: BODY } }], { x: X + 5.2, y: 4.14, w: 3.25, h: 0.64, fontFace: F, fontSize: 10.5, margin: 0, valign: 'middle', isTextBox: true });
+  s.addNotes(notes);
 }
+
+phase(0, 'DAYS 1–30', 'Days 1–30: know what we have first',
+  ['Meet every current customer: what are you designing next?', 'Map renewals, expansion potential and accounts at risk', 'Confirm account ownership with Andy and the US team'],
+  ['Reconcile my 840-company map against your CRM', 'Agree the first 20 target accounts with Andy', 'Book the first OEM meetings from week two'],
+  'Agreed baseline: accounts, owners, stage definitions, SE capacity',
+  'All current accounts met · 20 targets agreed',
+  null,
+  `~40 s. Existing and new run in parallel from week two — the base is secured first, not instead.
+The one question for every current customer: "what are you designing next?" — that's where expansion and the next design-in come from.
+Ownership: multi-site OEMs and cross-border accounts get a written rule before the first conflict, not after.
+SE capacity: "I'd ask you for the number rather than invent one." You're hiring a Sales Engineer in Germany — ask how capacity is shared until then.
+CRM: Doodle uses HubSpot (per the SE job post); I've run pipeline in Pipedrive.`);
+
+phase(1, 'DAYS 31–60', 'Days 31–60: put evaluations in engineers\' hands',
+  ['Expansion plan for each top account: next platform, second band', 'Resolve anything at risk before it reaches the forecast', 'Use current customers as references for new logos'],
+  ['4–6 evaluations with written success criteria and a decision date', 'Sized to Sales Engineering capacity; the rest wait in a qualified queue', '1–2 partners in bounded pilots: named accounts, deal registration'],
+  'Evaluations live, each with criteria, an owner and a date',
+  'Evaluations started · stage age · partner milestones',
+  null,
+  `~40 s. An eval kit shipped is not progress; an evaluation with agreed criteria, owner and decision date is.
+Why 4–6: one Sales Engineer can't run more strategic evaluations well; at the cap, the newest account waits.
+Second band: Dual Radio (Sep-2026) gives existing users a concrete reason to talk — test it as a hypothesis, not a pitch.
+Partners: private-label first (Solace, Broadcast Solutions); exclusivity only if earned; export check before the first call.`);
+
+phase(2, 'DAYS 61–90', 'Days 61–90: turn evidence into a forecast',
+  ['Close expansion orders where the customer\'s timing allows', 'Renewals and repeat orders secured and forecast', 'Account plans for the top accounts, reviewed with Andy'],
+  ['Design-in decisions where the customer\'s clock allows', 'Every target account: advance, nurture or stop, with a reason', 'Partner pilots: expand, revise or end'],
+  'Customer-backed forecast and a territory recommendation',
+  '20 documented account decisions · every forecast input labelled',
+  'No production wins promised in 90 days: the design-in cycle is longer than that.',
+  `~45 s. Revenue in the first 90 days comes from existing customers; new logos produce decisions, not invoices.
+Forecast = design-ins × platform volume × radios per platform × your price, each input tagged known or assumed, weighted by your stage benchmarks — not mine.
+Design-in clock (my assumption, to calibrate with David): decision ~month 9, certification behind it, first production PO ~month 24.
+Year-one number: "With your installed base and price book I'd commit to a number in week four."
+Closing line for this section: "Thirty days buy information, sixty buy proof, ninety buy commitment."`);
 
 // ---------- 11 · Discussion ----------
 {
@@ -245,7 +274,6 @@ Year-one number: "With your installed base and price book I'd commit to a number
     s.addText(q[0], { x: X, y, w: 1.6, h: 0.75, fontFace: MONO, fontSize: 10, color: CORAL, margin: 0, valign: 'top', isTextBox: true });
     s.addText(q[1], { x: X + 1.7, y, w: 6.9, h: 0.75, fontFace: F, fontSize: 13, color: WHITE, margin: 0, valign: 'top', isTextBox: true });
   });
-  s.addText('Give me the account list and 90 days — you\'ll have a forecast where every number has a source.', { x: X, y: 4.55, w: W, h: 0.5, fontFace: F, fontSize: 14, bold: true, color: WHITE, margin: 0, isTextBox: true });
   s.addNotes(`~30 s, then stop and listen.
 Growth → Amol. Ownership → Andy. Success → Andy.
 Have your own answer if they turn it back: "My guess from outside is expansion inside platforms you're already on, plus a few new logos where production is ramping — but you see the baseline, I don't."
